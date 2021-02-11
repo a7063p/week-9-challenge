@@ -1,6 +1,10 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const {generateMarkdown, languageArray} = require ('./utils/generateMarkdown')
+
+//const generateMarkdown = generate.generateMarkdown
+
 
 // TODO: Create an array of questions for user input
 //
@@ -66,19 +70,19 @@ const promptUser = () => {
         message: 'Choose a license type.(Reference: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository#choosing-the-right-license)',
         choices: [ 
             'None', 
-            'Apache License 2.0', 
-            'GNU General Public License v3.0', 
-            'MIT License', 
-            'BSD 2-Clause "Simplified" License', 
-            'BSD 3-Clause "New" or "Revised" License',
-            'Boost Software License 1.0',
+            'Apache 2.0', 
+            'GNU General Public v3.0', 
+            'MIT', 
+            'BSD 2-Clause "Simplified"', 
+            'BSD 3-Clause "New" or "Revised"',
+            'Boost Software 1.0',
             'Creative Commons Zero v1.0 Universal',
-            'Eclipse Public License 2.0',
-            'GNU Affero General Public License v3.0',
-            'GNU General Public License v2.0',
-            'GNU Lesser General Public License v2.1',
-            'Mozilla Public License 2.0',
-            'The Unlicense']
+            'Eclipse Public 2.0',
+            'GNU Affero General Public v3.0',
+            'GNU General Public v2.0',
+            'GNU Lesser General Public v2.1',
+            'Mozilla Public 2.0',
+            'Unlicense']
         },
 
         // LANGUAGES ***for badges 
@@ -86,7 +90,14 @@ const promptUser = () => {
             type: 'checkbox',
             name: 'language',
             message: 'What languages was this project built with? (check all that apply)',
-            choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'JQUERY', 'Bootstrap', 'Node']
+            choices: [
+                'JavaScript', 
+                'HTML', 
+                'CSS', 
+                'ES6', 
+                'JQUERY', 
+                'Bootstrap', 
+                'Node']
         },
 
         // CONTRIBUTION STATEMENT//
@@ -152,38 +163,42 @@ const promptUser = () => {
         message: 'Enter your contact email'
         }
     ])
+    
 };
 
 
 
-// ==============================================//
-
-// const promptScreenshot = screenshotData => {
-//     if(!screenshotData.imagePath) {
-//         screenshotData.imagePath =[]
-//     }
-// return inquirer
-// .prompt ([
-//     {
-//     type: 'input',
-//     name: 'screenShot',
-//     message: ''
-//     },
-// ])
-// }
-// =============================================//
-
-
-
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(filename, data) {
+    fs.writeFile(filename,data,err => {
+    if (err) throw new Error(err)
+    console.log('test complete');
+})
+}
 
-// TODO: Create a function to initialize app
 
-function init() {}
+// TODO: Create a function to initialize app 
 
-// Function call to initialize app
-promptUser();
-console.log(promptUser.name);
+// function init() {
+    promptUser()    
+    .then(data => {
+         generateMarkdown(data)
+         languageArray(data)
+          writeToFile('./README.md', generateMarkdown(data))
+    // console.log("data", data);
+    // })
+     })
+          
+   
+    
+//}     
+
+
+// // Function call to initialize app
+
+// init()
+
+
+
 
 
