@@ -221,7 +221,15 @@ const promptImage = imageData => {
         {
          type: 'input',
          name: 'name',
-         message: 'Enter relative path for screenshot:'
+         message: 'Enter relative path for screenshot:(required)',
+         validate: nameInput => {
+            if (nameInput) {
+                return true;
+                } else {
+                     console.log('A screenshot is needed');
+                     return false;
+                }
+            }
         },
         {
             type: 'confirm',
@@ -257,8 +265,7 @@ function writeToFile(filename, data) {
     .then( (data) => {
          generateMarkdown(data)
          writeToFile('./README.md', generateMarkdown(data))
-         console.log('data', data);
-     })
+    })
           
    
     

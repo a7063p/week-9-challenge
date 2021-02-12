@@ -8,9 +8,7 @@ function generateMarkdown (data) {
 
   ## Description
   ${data.description}
-
-
- 
+   
 
   ## Table of Contents
   ${data.confirmInstall === true ? "* [Installation](##Installation)" : ""}
@@ -19,9 +17,7 @@ function generateMarkdown (data) {
   ${data.language.length !== 0 ? "* [Languages](##Languages)" : ""}  
   ${data.customContribute !== undefined ? "* [Contribute](##Contribute)" : ""}
   ${data.test !== undefined ? "* [Tests](##Tests)" : ""}
-  ${data.userName !== undefined ? "* [Questions](##Questions)" : ""}
-
- 
+  ${data.userName !== undefined ? "* [Questions](##Questions)" : ""} 
   
 
   ${data.confirmInstall === true ? "## Installation" : ""}
@@ -36,10 +32,7 @@ function generateMarkdown (data) {
   ${data.images.length !== 0 ? "## Languages" : ""}  
   ${data.language.map(function (langs) {
     return "![language](https://img.shields.io/badge/" + langs + "-critical)"              
-  }).join("  ")}
-   
-   
-  
+  }).join("  ")}  
  
 
   ## License
