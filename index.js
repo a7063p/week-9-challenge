@@ -1,13 +1,11 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
+
 const fs = require('fs');
 const inquirer = require('inquirer');
-const {generateMarkdown, languageArray} = require ('./utils/generateMarkdown')
-
-//const generateMarkdown = generate.generateMarkdown
+const {generateMarkdown} = require ('./utils/generateMarkdown')
 
 
-// TODO: Create an array of questions for user input
-//
+// Array of questions for user input
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -188,7 +186,7 @@ const promptUser = () => {
                      
                     }
                 }
-        },
+             },
         {
         type: 'input',
         name: 'email',
@@ -201,7 +199,7 @@ const promptUser = () => {
                     return false;
                      
                     }
-                }
+            }
         }
     ])
     
@@ -209,35 +207,25 @@ const promptUser = () => {
 
 
 
-// TODO: Create a function to write README file
+// function to write README file //
 function writeToFile(filename, data) {
     fs.writeFile(filename,data,err => {
     if (err) throw new Error(err)
-    console.log('test complete');
+    console.log('README Complete');
 })
 }
 
 
-// TODO: Create a function to initialize app 
-
-// function init() {
+// Create a function to initialize app //
     promptUser()    
     .then(data => {
          generateMarkdown(data)
-         languageArray(data)
-          writeToFile('./README.md', generateMarkdown(data))
-    // console.log("data", data);
-    // })
+         writeToFile('./README.md', generateMarkdown(data))
      })
           
    
     
-//}     
 
-
-// // Function call to initialize app
-
-// init()
 
 
 
