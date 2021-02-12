@@ -1,60 +1,57 @@
 
-  # README Generator
-  ![license](https://img.shields.io/badge/license-MIT-critical)
+  # fewq
+  ![license](https://img.shields.io/badge/license-None-critical?./license/None)
 
   ## Description
-  This project makes a professional and consistant README.md for your GIT repo/project
+  fewq
 
 
-  [comment]: <> (-----------------Table of Contents-----------------)
+ 
 
   ## Table of Contents
-  * [Installation](##Installation)
-  * [Usage](##Usage)
+  
+  
   * [License](##License)
   * [Languages](##Languages)  
   
   
   * [Questions](##Questions)
 
-  [comment]: <> (===================================================)
+ 
   
 
-  ## Installation
-  This project requres Node.js and NPM Inquirer to function
+  
+  
 
   ## Usage
-  After completing initial setup with NODE and NPM Inquirer; from the command line initiate the app with <node index.js> then follow the prompts  
+   
 
-  [comment]: <> (---------------------License---------------)
+  ![image](./image/test.png)  
+  
+  ## Languages  
+  ![language](https://img.shields.io/badge/JavaScript-critical)
+   
+   
+  
+ 
 
   ## License
-  ![license](https://img.shields.io/badge/license-MIT-critical?style=for-the-badge&logo=appveyor)
+  ![license](https://img.shields.io/badge/license-None-critical)
   
-  This application currently is licensed with [MIT](./license/MIT.txt). 
-  Please click on the [link](./license/MIT.txt) to review all terms, definitions and conditions of use.
+  This application currently is licensed with [None](./license/None.txt). 
+  Please click on the [link](./license/None.txt) to review all terms, definitions and conditions of use.
+
+  This work is under exclusive Copyright protection. all use must be expressly given by author.
+
 
   
-
-  [comment]: <> (============================================)
-
-
-  [comment]: <> (----------Language HTML-------------)
-
-  ## Languages  
-   <ul>
-  <li> <img alt='Language' src='https://img.shields.io/badge/JavaScript-blue'></li><li> <img alt='Language' src='https://img.shields.io/badge/HTML-blue'></li><li> <img alt='Language' src='https://img.shields.io/badge/ES6-blue'></li><li> <img alt='Language' src='https://img.shields.io/badge/Node-blue'></li>
-  </ul>
-
-  [comment]: <> (====================================)
-
-  ## Contribute
-  Contribution privileges are open to ALL persons wanting to positively contribute to the improvement of this application
+  
 
   
   
 
   ## Questions
-  Please feel free to email me with any comments, questions or concerns at ap@ampiusa.com
+  Please feel free to email me with any comments, questions or concerns at gwe
 
-  [GitHub Account](https://github.com/a7063p)  
+  [GitHub Account](https://github.com/gfew)
+

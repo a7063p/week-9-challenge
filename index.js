@@ -205,6 +205,41 @@ const promptUser = () => {
     
 };
 
+const promptImage = imageData => {
+
+    console.log(`
+    ====================
+    ADD A New Screenshot
+    ====================
+    `);
+    if(!imageData.images) {
+    imageData.images = [];
+    }
+
+    return inquirer
+    .prompt([
+        {
+         type: 'input',
+         name: 'name',
+         message: 'Enter relative path for screenshot:'
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddImage',
+            message: 'Would you like to add another screenshot?',
+            default: 'true'
+        }
+    ])
+    .then(screenshotData => {
+    imageData.images.push(screenshotData.name);
+    if (screenshotData.confirmAddImage) {
+        return promptImage(imageData)
+    } else {
+        return imageData
+        }
+    });
+}
+
 
 
 // function to write README file //
@@ -217,10 +252,12 @@ function writeToFile(filename, data) {
 
 
 // Create a function to initialize app //
-    promptUser()    
-    .then(data => {
+    promptUser()
+    .then(promptImage)    
+    .then( (data) => {
          generateMarkdown(data)
          writeToFile('./README.md', generateMarkdown(data))
+         console.log('data', data);
      })
           
    
