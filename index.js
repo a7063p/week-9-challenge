@@ -29,7 +29,7 @@ const promptUser = () => {
         {
         type: 'input',
         name: 'description',
-        message: 'Provide a description of the project. (required)',
+        message: 'Provide a description of the project: (required)',
         validate: nameInput => {
             if (nameInput) {
                 return true;
@@ -47,43 +47,78 @@ const promptUser = () => {
         },
         {
         type: 'input',
-        name: 'Installation',
-        message: 'Enter installation instructions',
+        name: 'installation',
+        message: 'Enter installation instructions:',
         when: ({confirmInstall}) => {
             if (confirmInstall) {
                 return true;
                 } else {
                     return false;
                 }
-            }
+            },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+                } else {
+                    console.log('Please enter your Install Instructions.');
+                    return false;
+                        
+                }
+             }
         },
         // USAGE INSTRUCTIONS//
         {
+        type: 'confirm',
+        name: 'confirmUsage',
+        message: 'Would you like to enter Usage instructions?',
+        default: true
+        },
+        {
         type: 'input',
         name: 'usage',
-        message: 'Please provide usage instructions.'    
+        message: 'Please provide usage instructions:', 
+        when: ({confirmUsage}) => {
+            if (confirmUsage) {
+                return true;
+                } else {
+                    return false;
+                }
+            },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+                } else {
+                    console.log('Please enter your Usage Instructions.');
+                    return false;                        
+                }
+             }           
         },
         // LICENSE TYPE//
         {
         type: 'checkbox',
         name: 'license',
-        message: 'Choose a license type.(Reference: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository#choosing-the-right-license)',
+        message: 'Choose a license type:(required)',
         choices: [ 
             'None', 
-            'Apache 2.0', 
-            'GNU General Public v3.0', 
+            'Apache_2.0', 
+            'GNU_General_Public_v3.0', 
             'MIT', 
-            'BSD 2-Clause "Simplified"', 
-            'BSD 3-Clause "New" or "Revised"',
-            'Boost Software 1.0',
-            'Creative Commons Zero v1.0 Universal',
-            'Eclipse Public 2.0',
-            'GNU Affero General Public v3.0',
-            'GNU General Public v2.0',
-            'GNU Lesser General Public v2.1',
-            'Mozilla Public 2.0',
-            'Unlicense']
-        },
+            'ISC',
+            'Boost_Software_1.0',
+            'GNU_Affero_General_Public_v3.0',
+            'GNU_General_Public_v3.0',
+            'GNU_Lesser_General_Public_v3.0',
+            'Mozilla_Public_2.0',
+            'Unlicense'],
+        validate: nameInput => {
+            if (nameInput.length !== 0) {
+                return true;
+                } else {
+                    return false;
+                     
+                    }
+                }
+            },
 
         // LANGUAGES ***for badges 
         {
@@ -108,10 +143,9 @@ const promptUser = () => {
         default: false
         },
         {
-        type: 'confirm',
-        name: 'confirmDefaultContribute',
-        message: 'Would like to use the default contribution statement ("Contribution privileges are open to ALL persons wanting to positively contribute to this project") or customize your own (default - "Yes" / custom - "No")',
-        default: true,
+        type: 'input',
+        name: 'contribute',
+        message: 'Enter your contribution message:',
         when: ({confirmContribute}) => {
             if (confirmContribute) {
                 return true
@@ -120,18 +154,7 @@ const promptUser = () => {
                 }
             }
         },    
-        {
-        type: 'input',
-        name: 'customContribute',
-        message: 'Enter your custom contribution statement.',
-        when: ({confirmDefaultContribute})=> {
-            if(confirmDefaultContribute){
-                return false
-                } else {
-                 return true
-                }
-            }
-        },
+                
         // TEST DETAILS//
         {
         type: 'confirm',
@@ -155,12 +178,30 @@ const promptUser = () => {
         {
         type: 'input',
         name: 'userName',
-        message: 'Enter your GitHub User name'
+        message: 'Enter your GitHub User name: (required):',
+        validate: nameInput => {
+            if (nameInput.length !== 0) {
+                return true;
+                } else {
+                    console.log('Please Enter your GitHub username');
+                    return false;
+                     
+                    }
+                }
         },
         {
         type: 'input',
         name: 'email',
-        message: 'Enter your contact email'
+        message: 'Enter your contact email: (required)',
+        validate: nameInput => {
+            if (nameInput.length !== 0) {
+                return true;
+                } else {
+                    console.log(('Please enter your email address'));
+                    return false;
+                     
+                    }
+                }
         }
     ])
     
