@@ -265,6 +265,7 @@ function writeToFile(filename, data) {
     promptUser()
     .then(promptImage)    
     .then( (data) => {
+        console.log(data);
          generateMarkdown(data)
          writeToFile('./README.md', generateMarkdown(data))
     })
