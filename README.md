@@ -3,6 +3,8 @@
   ![license](https://img.shields.io/badge/license-MIT-critical?./license/MIT)
 
   ## Description
+  Links for screencastify video [screencastify](https://drive.google.com/file/d/11IPafuyeziyxnMC5_dBVT5fiOD6W2cJX/view)
+  Links for screencastify mp4 if original is blurry [mp4](https://drive.google.com/file/d/1zRCeHBg6zIN1tCKsc-AHoaOQRPai2Afp/view?usp=sharing)
   Generates a README file that is professional and consistent for your GIT repo and/or other applications
 
 
