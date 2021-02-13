@@ -8,7 +8,7 @@ function generateMarkdown (data) {
 
   ## Description
   ${data.description}
-   
+
 
   ## Table of Contents
   ${data.confirmInstall === true ? "* [Installation](##Installation)" : ""}
@@ -57,7 +57,6 @@ function generateMarkdown (data) {
 
 `;
 }
-
 
 
 module.exports = {generateMarkdown}

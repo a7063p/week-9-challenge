@@ -205,6 +205,8 @@ const promptUser = () => {
     
 };
 
+// ScreenShot array
+
 const promptImage = imageData => {
 
     console.log(`
@@ -259,7 +261,7 @@ function writeToFile(filename, data) {
 }
 
 
-// Create a function to initialize app //
+// a function to initialize app //
     promptUser()
     .then(promptImage)    
     .then( (data) => {
